@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="c"></canvas>
+	<script>
+		c.width=512;c.height=512;
+		const
+			w={},
+			ctx=c.getContext('2d'),
+			init=_=>Object.assign(w,{
+				blocks:[...Array(64)].map((_,i)=>({rect:[i%8*56+34,((i/8)|0)*16+34,52,12],sty:'#48f'})),
+				p:[c.width/2,c.height-36],
+				v:[0,-10],
+				_:[c.width/2-34,c.height-16]
+			}),
+			render=_=>(
+				ctx.fillStyle='#eee',ctx.fillRect(0,0,c.width,c.height),
+				ctx.fillStyle='#48f',ctx.fillRect(w._[0],w._[1]-6,68,12),
+				w.blocks.forEach(x=>(ctx.fillStyle=x.sty,ctx.fillRect(...x.rect))),
+				ctx.fillStyle='#48f',ctx.fillRect(...w.p.map(x=>x-4),8,8)
+			),
+			main=_=>(
+				w.p=w.p.map((x,i)=>x+w.v[i]),
+				w.v[1]+=.1,
+				w.blocks=w.blocks.reduce((a,x)=>(x.rect[0]<w.p[0]&&w.p[0]<x.rect[0]+x.rect[2]&&x.rect[1]<w.p[1]&&w.p[1]<x.rect[1]+x.rect[3]?w.v[+(Math.min(w.p[0]-x.rect[0],x.rect[0]+x.rect[2]-w.p[0])>Math.min(w.p[1]-x.rect[1],x.rect[1]+x.rect[3]-w.p[1]))]*=-1:a.push(x),a),[]),
+				w._[1]<=w.p[1]&&w._[0]<=w.p[0]&&w.p[0]<(w._[0]+68)&&(w.v=[-Math.cos(_=((w.p[0]-w._[0])/68*.66+.17)*Math.PI),-Math.sin(_)].map(x=>x*Math.hypot(...w.v))),
+				(w.p[0]<=0||c.width<=w.p[0])&&(w.v[0]*=-1),w.p[1]<=0&&(w.v[1]*=-1),c.height<=w.p[1]&&init(),
+				render(),w.blocks.length&&requestAnimationFrame(main)
+			);
+		init();
+		main();
+		c.onpointermove=e=>w._[0]=Math.max(34,Math.min(c.width-34,e.clientX-c.getBoundingClientRect().x))-34;
+	</script>
+</body>
+</html>
