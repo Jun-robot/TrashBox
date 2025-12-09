@@ -19,11 +19,11 @@
     }
     .container {
       width: 100%;
-      max-width: 800px;
+      max-width: 1600px;
       padding: 16px;
     }
     h1 {
-      font-size: 1.6rem;
+      font-size: 2rem;
       margin: 0 0 12px;
       text-align: center;
     }
@@ -36,13 +36,27 @@
     .toolbar input[type="text"] {
       flex: 1 1 200px;
       padding: 8px;
-      font-size: 1rem;
+      font-size: 1.2rem;
       border-radius: 4px;
       border: 1px solid #ccc;
     }
+    .toolbar .font-size-control {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+    .toolbar .font-size-control select {
+      padding: 4px 6px;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+    }
     .toolbar button {
       padding: 8px 12px;
-      font-size: 0.9rem;
+      font-size: 1.1rem;
       border-radius: 4px;
       border: none;
       cursor: pointer;
@@ -57,7 +71,7 @@
       height: calc(100vh - 170px);
       min-height: 200px;
       padding: 10px;
-      font-size: 1rem;
+      font-size: 50px;
       border-radius: 4px;
       border: 1px solid #ccc;
       resize: vertical;
@@ -65,7 +79,7 @@
     }
     .status {
       margin-top: 4px;
-      font-size: 0.8rem;
+      font-size: 1rem;
       color: #666;
       text-align: right;
     }
@@ -77,6 +91,16 @@
     <div class="toolbar">
       <input id="title" type="text" placeholder="タイトル (任意)">
       <button id="newNote" class="secondary">新規メモ</button>
+      <div class="font-size-control">
+        <span>文字サイズ</span>
+        <select id="fontSize">
+          <option value="22">小</option>
+          <option value="36">やや小</option>
+          <option value="50" selected>標準</option>
+          <option value="64">やや大</option>
+          <option value="80">特大</option>
+        </select>
+      </div>
       <button id="downloadNote">ダウンロード</button>
     </div>
     <textarea id="editor" placeholder="ここにメモを書いてください"></textarea>
@@ -89,6 +113,7 @@
 
       const titleInput = document.getElementById("title");
       const editor = document.getElementById("editor");
+      const fontSizeSelect = document.getElementById("fontSize");
       const status = document.getElementById("status");
       const newNoteBtn = document.getElementById("newNote");
       const downloadBtn = document.getElementById("downloadNote");
@@ -118,6 +143,10 @@
           const data = JSON.parse(raw);
           titleInput.value = data.title || "";
           editor.value = data.content || "";
+          if (data.fontSize) {
+            editor.style.fontSize = data.fontSize + "px";
+            fontSizeSelect.value = String(data.fontSize);
+          }
           if (data.updatedAt) {
             status.textContent = "自動保存: " + data.updatedAt;
           }
@@ -132,6 +161,7 @@
         const payload = {
           title: titleInput.value,
           content: editor.value,
+          fontSize: parseInt(fontSizeSelect.value, 10),
           updatedAt: formatTime(now),
         };
         try {
@@ -154,6 +184,10 @@
 
       titleInput.addEventListener("input", scheduleSave);
       editor.addEventListener("input", scheduleSave);
+      fontSizeSelect.addEventListener("change", () => {
+        editor.style.fontSize = fontSizeSelect.value + "px";
+        saveNote();
+      });
 
       newNoteBtn.addEventListener("click", () => {
         if (editor.value || titleInput.value) {
