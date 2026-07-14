@@ -108,21 +108,42 @@
     .category-heading {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
+    }
+
+    .category-select {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .category-select::after {
+      position: absolute;
+      right: 0;
+      color: #315c9b;
+      font-size: 0.65rem;
+      pointer-events: none;
+      content: "▾";
     }
 
     .category-filter {
-      width: 116px;
-      height: 24px;
-      padding: 0 22px 0 7px;
-      border: 1px solid #d2d2ce;
-      border-radius: 4px;
-      background: #fff;
-      color: #444;
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: normal;
-      text-transform: none;
+      width: 67px;
+      padding: 0 13px 0 0;
+      border: 0;
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      color: #315c9b;
+      font: inherit;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .category-filter:focus-visible {
+      border-radius: 2px;
+      outline: 2px solid #8fa8ca;
+      outline-offset: 2px;
     }
 
     tbody tr:last-child td {
@@ -252,10 +273,12 @@
             <th scope="col">Album</th>
             <th scope="col">
               <label class="category-heading">
-                Category
-                <select id="category-filter" class="category-filter">
-                  <option value="">All</option>
-                </select>
+                Category:
+                <span class="category-select">
+                  <select id="category-filter" class="category-filter">
+                    <option value="">All</option>
+                  </select>
+                </span>
               </label>
             </th>
             <th scope="col">Link</th>
