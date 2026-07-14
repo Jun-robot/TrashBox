@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>CMU Albums</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f7f5;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+    }
+
+    main {
+      width: min(800px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      letter-spacing: -0.03em;
+    }
+
+    .description {
+      margin: 0 0 28px;
+      color: #777;
+    }
+
+    .result-count {
+      margin: 0 0 7px;
+      color: #888;
+      font-size: 0.78rem;
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid #d8d8d4;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .albums {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    th,
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #e7e7e3;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      background: #f0f0ed;
+      color: #777;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .sort-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+      cursor: pointer;
+    }
+
+    .sort-button:hover {
+      color: #333;
+    }
+
+    .sort-indicator {
+      font-size: 0.9rem;
+      line-height: 1;
+    }
+
+    .category-heading {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .category-filter {
+      width: 116px;
+      height: 24px;
+      padding: 0 22px 0 7px;
+      border: 1px solid #d2d2ce;
+      border-radius: 4px;
+      background: #fff;
+      color: #444;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    tbody tr:hover {
+      background: #fafaf8;
+    }
+
+    .album-name {
+      font-weight: 600;
+    }
+
+    .album-date {
+      color: #666;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .album-category {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #eeeeea;
+      color: #666;
+      font-size: 0.72rem;
+    }
+
+    .album-link {
+      color: #315c9b;
+      text-decoration: none;
+    }
+
+    .album-link:hover {
+      text-decoration: underline;
+    }
+
+    .message {
+      color: #777;
+    }
+
+    .message--error {
+      color: #a43d32;
+    }
+
+    .plain-text-section {
+      margin-top: 28px;
+    }
+
+    .plain-text-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .plain-text-title {
+      margin: 0;
+      color: #666;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .copy-button {
+      padding: 5px 9px;
+      border: 1px solid #d2d2ce;
+      border-radius: 4px;
+      background: #fff;
+      color: #444;
+      font: inherit;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .copy-button:hover:not(:disabled) {
+      background: #f0f0ed;
+    }
+
+    .copy-button:disabled {
+      color: #aaa;
+      cursor: default;
+    }
+
+    .plain-text {
+      display: block;
+      width: 100%;
+      min-height: 210px;
+      padding: 12px;
+      overflow: auto;
+      border: 1px solid #d8d8d4;
+      border-radius: 6px;
+      background: #fff;
+      color: #444;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.72rem;
+      line-height: 1.55;
+      resize: vertical;
+    }
+
+    @media (max-width: 520px) {
+      main {
+        width: calc(100% - 24px);
+        padding: 36px 0;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>CMU Albums</h1>
+    <p class="description">Photos from my time at CMU.</p>
+
+    <p id="result-count" class="result-count" aria-live="polite"></p>
+
+    <div class="table-wrap">
+      <table class="albums">
+        <thead>
+          <tr>
+            <th id="date-header" scope="col" aria-sort="descending">
+              <button id="date-sort" class="sort-button" type="button" title="Show oldest first">
+                Date <span id="sort-indicator" class="sort-indicator" aria-hidden="true">↓</span>
+              </button>
+            </th>
+            <th scope="col">Album</th>
+            <th scope="col">
+              <label class="category-heading">
+                Category
+                <select id="category-filter" class="category-filter">
+                  <option value="">All</option>
+                </select>
+              </label>
+            </th>
+            <th scope="col">Link</th>
+          </tr>
+        </thead>
+        <tbody id="albums" aria-live="polite">
+          <tr><td class="message" colspan="4">Loading albums…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <section class="plain-text-section" aria-labelledby="plain-text-title">
+      <div class="plain-text-header">
+        <h2 id="plain-text-title" class="plain-text-title">Plain text</h2>
+        <button id="copy-button" class="copy-button" type="button" disabled>Copy all</button>
+      </div>
+      <textarea id="plain-text" class="plain-text" rows="10" wrap="off" readonly></textarea>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
