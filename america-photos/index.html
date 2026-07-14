@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Shared Albums</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f7f5;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+    }
+
+    main {
+      width: min(680px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 80px 0;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      letter-spacing: -0.03em;
+    }
+
+    .description {
+      margin: 0 0 48px;
+      color: #777;
+    }
+
+    .albums {
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid #ddd;
+      list-style: none;
+    }
+
+    .album {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 22px 4px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .album-name {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .album-category {
+      display: inline-block;
+      margin-top: 5px;
+      color: #777;
+      font-size: 0.78rem;
+    }
+
+    .album-link {
+      flex: 0 0 auto;
+      color: #315c9b;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .album-link:hover {
+      text-decoration: underline;
+    }
+
+    .message {
+      padding: 22px 4px;
+      border-bottom: 1px solid #ddd;
+      color: #777;
+    }
+
+    .message--error {
+      color: #a43d32;
+    }
+
+    @media (max-width: 520px) {
+      main {
+        padding: 48px 0;
+      }
+
+      .album {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Shared Albums</h1>
+    <p class="description">Choose an album to view the photos.</p>
+
+    <ul id="albums" class="albums" aria-live="polite">
+      <li class="message">Loading albums…</li>
+    </ul>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

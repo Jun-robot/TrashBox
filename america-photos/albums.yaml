@@ -1,0 +1,116 @@
+# To add an album, copy a three-line entry below and update its values.
+- name: "20260713-riss-soccer"
+  url: "https://www.amazon.co.jp/photos/share/tsWaMpfyHqurAeuZk3EFXlCH1MMPW7jZEOuNS3jfTRL"
+  category: "riss"
+
+- name: "20260712-apple-store"
+  url: "https://www.amazon.co.jp/photos/share/twOP813DniY60DCmt9ZZDRj7uxCaQVZZJ97HK3siJtq"
+  category: "keio"
+
+- name: "20260711-ramen"
+  url: "https://www.amazon.co.jp/photos/share/qWL3CGGTpDARRLDOufuaEctcyuaoMzhoeNwzrzNoGbP"
+  category: "keio"
+
+- name: "20260710-riss-airlab"
+  url: "https://www.amazon.co.jp/photos/share/dvUkm4lIow23pF8hHbs3TfYv4ZsoQElV4AZnQO1JQOH"
+  category: "riss"
+
+- name: "20260707-apple-watch"
+  url: "https://www.amazon.co.jp/photos/share/V28YtKkGYdXq0la0EAUVkNEm1rWmQEmoHV7fWqw4rEp"
+  category: "daily-life"
+
+- name: "20260707-dance"
+  url: "https://www.amazon.co.jp/photos/share/OPwZhUI2RkqSVhqlLU9AmMiLdJcTmIWqNUa5Vm1cAfK"
+  category: "event"
+
+- name: "20260704-firework-not-observed"
+  url: "https://www.amazon.co.jp/photos/share/EMeZ4nGSGtybfnFnKx6j0iibHwvMUs6iWKaxC73nmqc"
+  category: "event"
+
+- name: "20260703-walk-schenley-park"
+  url: "https://www.amazon.co.jp/photos/share/LSwYN4cfQIQYHlci9tyQhzEdOWN0BlR3pYH9RCOdzaq"
+  category: "walk"
+
+- name: "20260702-riss-mixer"
+  url: "https://www.amazon.co.jp/photos/share/0bbBCY1UIBJSqcAFWc9gG4Eru0hxgZBwWMEBorFVmrk"
+  category: "riss"
+
+- name: "20260701-riss-abstract-dinner"
+  url: "https://www.amazon.co.jp/photos/share/GQFZEzsZUeKMhv6u0nIBiZXQeKYSXWvVapCmyohR8vi"
+  category: "riss"
+
+- name: "20260630-walk-schenley-park"
+  url: "https://www.amazon.co.jp/photos/share/DWry5wx9LgaIPVsatHlwjeNWuWwcwtDuXCeVVluSPoM"
+  category: "walk"
+
+- name: "20260629-walk-schenley-park"
+  url: "https://www.amazon.co.jp/photos/share/dNrtEeGOVzUakVhrqyPkLjxUroOB9LB5h4O9hQ1bbDQ"
+  category: "walk"
+
+- name: "20260629-riss-alexfoessel"
+  url: "https://www.amazon.co.jp/photos/share/koKLIp63oR27TmCDCIpUshNj2kg1exlavBN0Uil3t0I"
+  category: "riss"
+
+- name: "20260628-walk-schenley-park"
+  url: "https://www.amazon.co.jp/photos/share/kkBXwmqTXg4leZq9f7hCfoqxT6z7EVL466K3t6dDBfy"
+  category: "walk"
+
+- name: "20260624-research-photo"
+  url: "https://www.amazon.co.jp/photos/share/HJmf8FqPE8vnAAGTWKfid8OxHN76eRAFyMU98NLOokV"
+  category: "research"
+
+- name: "20260623-research-photo"
+  url: "https://www.amazon.co.jp/photos/share/7Zbpe0y8fXnPuLWTvOGrf3qbqwYtK55t360EqmJmizG"
+  category: "research"
+
+- name: "20260621-walk"
+  url: "https://www.amazon.co.jp/photos/share/1MG652zD8lauAIaTRvGQvN2KJfnE8KOnKpc6RtkplNd"
+  category: "walk"
+
+- name: "20260620symphony"
+  url: "https://www.amazon.co.jp/photos/share/mIcvh7pKQwk6awrayCx5RHU6axO9PoNJEVITuHLOxqt"
+  category: "event"
+
+- name: "20260619-walk"
+  url: "https://www.amazon.co.jp/photos/share/I4ylJqG1IVJxSlvkVO2OFTL4xXYuhDuMHIB7wLnhYRn"
+  category: "walk"
+
+- name: "20260614-worldcup"
+  url: "https://www.amazon.co.jp/photos/share/41Cqc1ze4YloKecAseWC6JhOInx6vHolsactm2fSif3"
+  category: "event"
+
+- name: "20260613-walk"
+  url: "https://www.amazon.co.jp/photos/share/KBYoSVuykt0qbXBmHytn8hlWJVPPBwWnOil5jPLk84R"
+  category: "walk"
+
+- name: "20260612-museum"
+  url: "https://www.amazon.co.jp/photos/share/2FrieVmvOxYmhXv2V3DsxWUGHjsFtfV6sdVoCxWxmZD"
+  category: "outing"
+
+- name: "20260610-riss-workshop"
+  url: "https://www.amazon.co.jp/photos/share/XOMoxveaipAwrR1Kysrsh7i0FWv6o7M0rTe41B6WAIO"
+  category: "riss"
+
+- name: "20260610-baseball"
+  url: "https://www.amazon.co.jp/photos/share/wSSFivUiIEjVl8iiKsQIPHZZ9McGbnIsv2ihOvAPrUL"
+  category: "event"
+
+- name: "20260609-daily-life"
+  url: "https://www.amazon.co.jp/photos/share/1gnMeyUa0ZkM9rErTrU4TtRBUyHNsSvxangU7SdpiYN"
+  category: "daily-life"
+
+- name: "20260608-cooking"
+  url: "https://www.amazon.co.jp/photos/share/PNZiBGbIICTuNax8ZOIzcNltZmIrHqCgJrg6mKY6aJl"
+  category: "daily-life"
+
+- name: "20260607-photo"
+  url: "https://www.amazon.co.jp/photos/share/NE28vt54zuaQpcifhV0NDxqfmulNREDFDf7LIIh59II"
+  category: "photo"
+
+- name: "20260529-0603-walk-pitt"
+  url: "https://www.amazon.co.jp/photos/share/YY4S8gQZTNBYMbR2hP83pVtEfyyxVYlSQozgeN5J4ph"
+  category: "walk"
+
+- name: "20260527-0528-chicago"
+  url: "https://www.amazon.co.jp/photos/share/6C5SEiQ9wSudxCUduscBpJAu9kms4cBAywKxwR43yYg"
+  category: "travel"
