@@ -1,4 +1,9 @@
 # To add an album, copy a four-line entry below and update its values.
+- name: "20260716-cmu-lobby"
+  date: "2026-07-16"
+  url: "https://www.amazon.co.jp/photos/share/aXQHV2UF0pPrwgFK1kArpM2LKb7vAb79lF2ux8qLsEb"
+  category: "daily"
+
 - name: "20260713-soccer"
   date: "2026-07-13"
   url: "https://www.amazon.co.jp/photos/share/tsWaMpfyHqurAeuZk3EFXlCH1MMPW7jZEOuNS3jfTRL"
