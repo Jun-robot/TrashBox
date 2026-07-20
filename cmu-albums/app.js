@@ -66,7 +66,14 @@ const createAlbumItem = (album) => {
 
   const name = document.createElement("td");
   name.className = "album-name";
-  name.textContent = album.name;
+
+  const link = document.createElement("a");
+  link.className = "album-link";
+  link.href = album.url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = album.name;
+  name.append(link);
 
   const categoryCell = document.createElement("td");
   if (album.category) {
@@ -78,16 +85,7 @@ const createAlbumItem = (album) => {
     categoryCell.textContent = "—";
   }
 
-  const linkCell = document.createElement("td");
-  const link = document.createElement("a");
-  link.className = "album-link";
-  link.href = album.url;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  link.textContent = "Open ↗";
-  linkCell.append(link);
-
-  item.append(date, name, categoryCell, linkCell);
+  item.append(date, name, categoryCell);
   return item;
 };
 
@@ -95,7 +93,7 @@ const showMessage = (message, isError = false) => {
   const row = document.createElement("tr");
   const item = document.createElement("td");
   item.className = isError ? "message message--error" : "message";
-  item.colSpan = 4;
+  item.colSpan = 3;
   item.textContent = message;
   row.append(item);
   albumList.replaceChildren(row);
