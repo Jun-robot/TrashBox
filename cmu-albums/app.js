@@ -72,7 +72,7 @@ const createAlbumItem = (album) => {
   link.href = album.url;
   link.target = "_blank";
   link.rel = "noopener noreferrer";
-  link.textContent = album.name;
+  link.textContent = `${album.name} ↗`;
   name.append(link);
 
   const categoryCell = document.createElement("td");
